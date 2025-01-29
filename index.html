@@ -1,11 +1,110 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Candidatos presidenciales</title>
+    <title>Elecciones Presidenciales Ecuador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px;
+            text-align: center;
+        }
+        nav button {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        nav button:hover {
+            background-color: #777;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .content p {
+            color: #555;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    
+
+    <header>
+        <h1>Elecciones Presidenciales Ecuador</h1>
+    </header>
+
+    <nav>
+        <button onclick="window.location.href='#'">Home</button>
+        <button onclick="window.location.href='#biografias'">Biografías</button>
+        <button onclick="window.location.href='#cne'">CNE</button>
+    </nav>
+
+    <div class="content">
+        <h2>Información Básica</h2>
+        <p>
+            Las elecciones presidenciales en Ecuador son un proceso democrático en el que los ciudadanos eligen al presidente y vicepresidente de la República. Estas elecciones se realizan cada cuatro años y son organizadas por el Consejo Nacional Electoral (CNE).
+        </p>
+        <p>
+            Para participar en las elecciones, los ciudadanos deben estar inscritos en el registro electoral y cumplir con los requisitos establecidos por la ley. El presidente electo asume el cargo el 24 de mayo del año siguiente a las elecciones.
+        </p>
+    </div>
+
+    <div id="biografias" class="content" style="display:none;">
+        <h2>Biografías de los Candidatos</h2>
+        <p>
+            Aquí encontrarás las biografías de los candidatos a la presidencia de Ecuador. Esta sección estará disponible próximamente.
+        </p>
+    </div>
+
+    <div id="cne" class="content" style="display:none;">
+        <h2>Consejo Nacional Electoral (CNE)</h2>
+        <p>
+            El Consejo Nacional Electoral (CNE) es el organismo encargado de organizar, controlar y garantizar los procesos electorales en Ecuador. El CNE vela por la transparencia y legitimidad de las elecciones, asegurando que los procesos sean justos y equitativos.
+        </p>
+        <p>
+            Para más información, visita el sitio oficial del CNE: <a href="https://www.cne.gob.ec" target="_blank">www.cne.gob.ec</a>.
+        </p>
+    </div>
+
+    <script>
+        function showContent(section) {
+            document.querySelectorAll('.content').forEach(function(content) {
+                content.style.display = 'none';
+            });
+            document.getElementById(section).style.display = 'block';
+        }
+
+        document.querySelector('button[onclick="window.location.href=\'#biografias\'"]').onclick = function() {
+            showContent('biografias');
+        };
+
+        document.querySelector('button[onclick="window.location.href=\'#cne\'"]').onclick = function() {
+            showContent('cne');
+        };
+
+        document.querySelector('button[onclick="window.location.href=\'#\'"]').onclick = function() {
+            showContent('informacion');
+        };
+    </script>
+
 </body>
 </html>
