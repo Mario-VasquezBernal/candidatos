@@ -52,6 +52,38 @@
             margin: 10px 0;
             font-size: 18px;
             color: #333;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .candidate-list li:hover {
+            color: #777;
+        }
+
+        /* Estilo para mostrar la información de los candidatos */
+        .candidate-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            display: none; /* Oculto inicialmente */
+        }
+        .candidate-info img {
+            max-width: 200px;
+            border-radius: 10px;
+        }
+        .back-btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background-color: #777;
         }
     </style>
 </head>
@@ -80,9 +112,9 @@
     <div id="biografias" class="content" style="display:none;">
         <h2>Biografías de los Candidatos</h2>
         <ul class="candidate-list">
-            <li>Daniel Noboa</li>
-            <li>Andrea González</li>
-            <li>Henry Kronfle</li>
+            <li onclick="showCandidateInfo('daniel-noboa')">Daniel Noboa</li>
+            <li onclick="showCandidateInfo('andrea-gonzalez')">Andrea González</li>
+            <li onclick="showCandidateInfo('henry-kronfle')">Henry Kronfle</li>
         </ul>
     </div>
 
@@ -96,12 +128,63 @@
         </p>
     </div>
 
+    <!-- Información de los candidatos (ocultos inicialmente) -->
+    <div id="daniel-noboa" class="candidate-info">
+        <h1>Daniel Noboa</h1>
+        <img src="https://via.placeholder.com/200" alt="Daniel Noboa">
+        <h2>Información Básica</h2>
+        <p>Edad: 35 años</p>
+        <p>Partido: Partido XYZ</p>
+        <p>Biografía: Daniel Noboa es un empresario y político ecuatoriano...</p>
+        <button class="back-btn" onclick="hideCandidateInfo()">Volver</button>
+    </div>
+
+    <div id="andrea-gonzalez" class="candidate-info">
+        <h1>Andrea González</h1>
+        <img src="https://via.placeholder.com/200" alt="Andrea González">
+        <h2>Información Básica</h2>
+        <p>Edad: 40 años</p>
+        <p>Partido: Partido ABC</p>
+        <p>Biografía: Andrea González es una abogada y activista...</p>
+        <button class="back-btn" onclick="hideCandidateInfo()">Volver</button>
+    </div>
+
+    <div id="henry-kronfle" class="candidate-info">
+        <h1>Henry Kronfle</h1>
+        <img src="https://via.placeholder.com/200" alt="Henry Kronfle">
+        <h2>Información Básica</h2>
+        <p>Edad: 50 años</p>
+        <p>Partido: Partido DEF</p>
+        <p>Biografía: Henry Kronfle es un ingeniero y político...</p>
+        <button class="back-btn" onclick="hideCandidateInfo()">Volver</button>
+    </div>
+
     <script>
         function showContent(section) {
+            // Ocultar todas las secciones de contenido
             document.querySelectorAll('.content').forEach(function(content) {
                 content.style.display = 'none';
             });
+            // Mostrar la sección correspondiente
             document.getElementById(section).style.display = 'block';
+        }
+
+        function showCandidateInfo(candidateId) {
+            // Ocultar todas las secciones de información de los candidatos
+            document.querySelectorAll('.candidate-info').forEach(function(info) {
+                info.style.display = 'none';
+            });
+            // Mostrar la información del candidato seleccionado
+            document.getElementById(candidateId).style.display = 'block';
+        }
+
+        function hideCandidateInfo() {
+            // Ocultar todas las secciones de información de los candidatos
+            document.querySelectorAll('.candidate-info').forEach(function(info) {
+                info.style.display = 'none';
+            });
+            // Mostrar la sección de biografías
+            document.getElementById('biografias').style.display = 'block';
         }
     </script>
 
