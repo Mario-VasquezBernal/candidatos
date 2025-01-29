@@ -44,6 +44,15 @@
             color: #555;
             line-height: 1.6;
         }
+        .candidate-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .candidate-list li {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -53,12 +62,12 @@
     </header>
 
     <nav>
-        <button onclick="window.location.href='#'">Home</button>
-        <button onclick="window.location.href='#biografias'">Biografías</button>
-        <button onclick="window.location.href='#cne'">CNE</button>
+        <button onclick="showContent('informacion')">Home</button>
+        <button onclick="showContent('biografias')">Biografías</button>
+        <button onclick="showContent('cne')">CNE</button>
     </nav>
 
-    <div class="content">
+    <div id="informacion" class="content">
         <h2>Información Básica</h2>
         <p>
             Las elecciones presidenciales en Ecuador son un proceso democrático en el que los ciudadanos eligen al presidente y vicepresidente de la República. Estas elecciones se realizan cada cuatro años y son organizadas por el Consejo Nacional Electoral (CNE).
@@ -70,9 +79,11 @@
 
     <div id="biografias" class="content" style="display:none;">
         <h2>Biografías de los Candidatos</h2>
-        <p>
-            Aquí encontrarás las biografías de los candidatos a la presidencia de Ecuador. Esta sección estará disponible próximamente.
-        </p>
+        <ul class="candidate-list">
+            <li>Daniel Noboa</li>
+            <li>Andrea González</li>
+            <li>Henry Kronfle</li>
+        </ul>
     </div>
 
     <div id="cne" class="content" style="display:none;">
@@ -92,18 +103,6 @@
             });
             document.getElementById(section).style.display = 'block';
         }
-
-        document.querySelector('button[onclick="window.location.href=\'#biografias\'"]').onclick = function() {
-            showContent('biografias');
-        };
-
-        document.querySelector('button[onclick="window.location.href=\'#cne\'"]').onclick = function() {
-            showContent('cne');
-        };
-
-        document.querySelector('button[onclick="window.location.href=\'#\'"]').onclick = function() {
-            showContent('informacion');
-        };
     </script>
 
 </body>
